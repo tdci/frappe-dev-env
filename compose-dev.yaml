@@ -1,4 +1,5 @@
 version: "3.7"
+name: frappe-dev-version13
 services:
   mariadb:
     image: mariadb:10.6
