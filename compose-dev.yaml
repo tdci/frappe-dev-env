@@ -34,7 +34,6 @@ services:
 
   frappe:
     image: frappe/bench:latest
-    container_name: frappe-dev-version13-frappe
     command: sleep infinity
     environment:
       - SHELL=/bin/bash
