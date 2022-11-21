@@ -1,8 +1,8 @@
 version: "3.7"
+name: frappe-dev-version13
 services:
   mariadb:
     image: mariadb:10.6
-    container_name: frappe-dev-version13-mariadb
     command:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
@@ -24,15 +24,12 @@ services:
   #     - postgresql-data:/var/lib/postgresql/data
 
   redis-cache:
-    container_name: frappe-dev-version13-redis-cache
     image: redis:alpine
 
   redis-queue:
-    container_name: frappe-dev-version13-redis-queue
     image: redis:alpine
 
   redis-socketio:
-    container_name: frappe-dev-version13-redis-socketio
     image: redis:alpine
 
   frappe:
@@ -52,4 +49,3 @@ services:
 
 volumes:
   mariadb-data:
-    name: frappe-dev-version13
