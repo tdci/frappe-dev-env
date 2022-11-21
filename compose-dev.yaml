@@ -3,6 +3,7 @@ name: frappe-dev-version13
 services:
   mariadb:
     image: mariadb:10.6
+    container_name: frappe-dev-version13-mariadb
     command:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
@@ -14,6 +15,8 @@ services:
       - mariadb-data:/var/lib/mysql
     ports:
       - 3306:3306
+    networks:
+      - network-version13
 
   # Enable PostgreSQL only if you use it, see development/README.md for more information.
   # postgresql:
@@ -24,16 +27,26 @@ services:
   #     - postgresql-data:/var/lib/postgresql/data
 
   redis-cache:
+    container_name: frappe-dev-version13-redis-cache
     image: redis:alpine
+    networks:
+      - network-version13
 
   redis-queue:
+    container_name: frappe-dev-version13-redis-queue
     image: redis:alpine
+    networks:
+      - network-version13
 
   redis-socketio:
+    container_name: frappe-dev-version13-redis-socketio
     image: redis:alpine
+    networks:
+      - network-version13
 
   frappe:
     image: frappe/bench:latest
+    container_name: frappe-dev-version13-frappe
     command: sleep infinity
     environment:
       - SHELL=/bin/bash
@@ -45,6 +58,13 @@ services:
     ports:
       - 8000-8005:8000-8005
       - 9000-9005:9000-9005
+    networks:
+      - network-version13
 
 volumes:
   mariadb-data:
+    name: frappe-dev-version13-volumes
+    
+networks:
+  network-version13:
+    name: frappe-dev-version13-networks
