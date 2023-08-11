@@ -99,8 +99,8 @@ init_bench() {
 
   if [ "$branch" == "develop" ] || [ "$branch" == "version-14" ]; then
     python_version=python3.10
-    PYENV_VERSION=3.10.5
-    NODE_VERSION=v16
+    PYENV_VERSION=3.10.12
+    NODE_VERSION=v18
   elif [ "$branch" == "version-13" ]; then
     python_version=python3.9
     PYENV_VERSION=3.9.9
