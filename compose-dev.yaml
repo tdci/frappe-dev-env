@@ -12,7 +12,7 @@ services:
     volumes:
       - mariadb-data:/var/lib/mysql
     ports:
-      - 3306:3306
+      - 3305:3306
 
   # Enable PostgreSQL only if you use it, see development/README.md for more information.
   # postgresql:
@@ -42,8 +42,8 @@ services:
       # - ${HOME}/.ssh:/home/frappe/.ssh
     working_dir: /workspace/development
     ports:
-      - 8000-8005:8000-8005
-      - 9000-9005:9000-9005
+      - 7994-7999:8000-8005
+      - 8994-8999:9000-9005
 
 volumes:
   mariadb-data:
